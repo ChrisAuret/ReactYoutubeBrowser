@@ -7,15 +7,18 @@ var HTMLWebpackPluginConfig  = new HtmlWebpackPlugin ({
 
 module.exports = {
     entry: [
-        './app/index.js'
+        './app/styles/style.css',
+        './app/index.js',
+        
     ],
     output: {
-        path: __dirname + '/dist',
+        path: __dirname,
         filename: 'index_bundle.js'
     },
     module:{
         loaders:[
-            { test: /\.js$/, exclude: /node_modules/, loader: "babel" }
+            { test: /\.js$/, exclude: /node_modules/, loader: "babel" },
+            { test: /\.css$/, exclude: /node_modules/, loader: "style!css" }
         ]
     },
     plugins: [HTMLWebpackPluginConfig]  
